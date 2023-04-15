@@ -10,7 +10,7 @@
 
 # Solutions
 
-*The code should produce no warnings at all.*
+**The code should produce no warnings at all.**
 Solutions should be sent to email address as links to a repository in GitHub before 2023/09/15: 
 
 leslaw dot pawlaczyk at chorzow dot wsb dot pl
