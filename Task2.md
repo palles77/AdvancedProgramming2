@@ -1,13 +1,13 @@
 # Grading
 
-a) 'dst' - tasks from 1 to 5.
-b) 'dst plus' - tasks from 1 to 6.
-b) 'db' - tasks from 1 to 7.
-b) 'db plus' - tasks from 1 to 8.
-b) 'bdb' - tasks from 1 to 9.
+* 'dst' - tasks from 1 to 5.
+* 'dst plus' - tasks from 1 to 6.
+* 'db' - tasks from 1 to 7.
+* 'db plus' - tasks from 1 to 8.
+* 'bdb' - tasks from 1 to 9.
 
 Solutions should be sent to email address as links to a repository in GitHub before 2023/09/15: leslaw dot pawlaczyk at chorzow dot wsb dot pl
-Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in (Task1.md)[Task1.md], (Task3.md)[Task3.md]
+Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in  (Task1.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task1.md], (Task3.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task3.md]
 
 -----------------------------------
 
@@ -52,15 +52,14 @@ b) More information about dependency injection can be found in literature furthe
 
 # Literature:
 
-* [WPF-Polish](wpf-pl-7.0.pdf)
-* [WPF-English](wpf-en-7.0.pdf)
-* [.NET-Polish](dotnet-fundamentals-pl.pdf)
-* [.NET-English](dotnet-fundamentals-en.pdf)
+* [WPF-Polish](https://github.com/palles77/AdvancedProgramming2/blob/main/wpf-en-7.0.pdf)
+* [WPF-English](https://github.com/palles77/AdvancedProgramming2/blob/main/wpf-en-7.0.pdf)
+* [.NET-Polish](https://github.com/palles77/AdvancedProgramming2/blob/main/dotnet-fundamentals-pl.pdf)
+* [.NET-English](https://github.com/palles77/AdvancedProgramming2/blob/main/dotnet-fundamentals-en.pdf)
 * https://learn.microsoft.com/pl-pl/dotnet/core/testing/unit-testing-with-dotnet-test
 * https://learn.microsoft.com/pl-pl/dotnet/architecture/modern-web-apps-azure/architectural-principles
 * https://learn.microsoft.com/pl-pl/dotnet/communitytoolkit/mvvm/
 * https://learn.microsoft.com/pl-pl/ef/
-
 
 # Last Modified
 

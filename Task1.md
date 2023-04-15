@@ -1,13 +1,13 @@
 # Grading
 
-a) 'dst' - tasks from 1 to 3.
-b) 'dst plus' - tasks from 1 to 4.
-b) 'db' - tasks from 1 to 5.
-b) 'db plus' - tasks from 1 to 6.
-b) 'bdb' - tasks from 1 to 7.
+* 'dst' - tasks from 1 to 3.
+* 'dst plus' - tasks from 1 to 4.
+* 'db' - tasks from 1 to 5.
+* 'db plus' - tasks from 1 to 6.
+* 'bdb' - tasks from 1 to 7.
 
 Solutions should be sent to email address as links to a repository in GitHub before 2023/09/15: leslaw dot pawlaczyk at chorzow dot wsb dot pl
-Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in Task2.md, Task3.md
+Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in (Task2.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task2.md], (Task3.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task3.md]
 
 -----------------------------------
 
@@ -23,6 +23,7 @@ These properties should be rendered in Student related controls and views.
 -----------------------------------
 
 2. Rename Subject entity to Course and modify it such that it has the following properties:
+
 * Course Code (string)
 * Title (string)
 * Instructor (string)
@@ -39,7 +40,7 @@ Imporant notes:
 * You should base your code on existing examples (it could be a Student entity, views, and view models).
 * All the data types and services should have corresponding interfaces.
 
-a) FacultyMember:
+## FacultyMember:
 * faculty_id (string)
 * name (string)
 * age (integer)
@@ -49,7 +50,7 @@ a) FacultyMember:
 * email (string)
 * office_room_number (string)
 
-b) Book:
+## Book:
 * book_id (string)
 * title (string)
 * author (string)
@@ -59,7 +60,7 @@ b) Book:
 * genre (string)
 * description (string)
 
-c) ResearchProject:
+## ResearchProject:
 * project_id (string)
 * title (string)
 * description (string)
@@ -69,7 +70,7 @@ c) ResearchProject:
 * end_date (date)
 * budget (float)
 
-d) Classroom:
+## Classroom:
 * classroom_id (string)
 * location (string)
 * capacity (integer)
@@ -79,7 +80,7 @@ d) Classroom:
 * microphone (boolean)
 * description (string)
 
-e) Library:
+## Library:
 * name (string)
 * address (string)
 * number_of_floors (integer)
@@ -88,8 +89,7 @@ e) Library:
 * facilities (list of strings)
 * librarian (string)
 
-f) AthleticsFacility:
-
+## AthleticsFacility:
 * facility_id (string)
 * name (string)
 * location (string)
@@ -99,7 +99,7 @@ f) AthleticsFacility:
 * equipment (list of strings)
 * capacity (integer)
 
-g) StudentOrganization:
+## StudentOrganization:
 * org_id (string)
 * name (string)
 * advisor (string)
@@ -109,7 +109,7 @@ g) StudentOrganization:
 * membership (list of strings)
 * email (string)
 
-h) Exam:
+## Exam:
 * exam_id (string)
 * course_code (string)
 * date (date)
@@ -129,25 +129,16 @@ h) Exam:
 
 5. Add support for one of the chosen many to many relationships. Make sure you have a support for the entities used in such mapping.
 
-a) FacultyMembers and ResearchProjects (a faculty member could supervise multiple research projects, and a research project could have multiple faculty members on its team)
-
-b) Books and Courses (a book could be used in multiple courses, and a course could require multiple books)
-
-c) StudentOrganizations and Students (an organization could have multiple members, and a student could belong to multiple organizations)
-
-d) Exams and Courses (a course could have multiple exams, and an exam could be given in multiple courses)
-
-e) AthleticsFacilities and FacultyMembers (a faculty member could use multiple facilities for their research or recreation, and a facility could be used by multiple faculty members)
-
-f) ResearchProjects and Students (a research project could have multiple undergraduate students working on it, and a student could work on multiple research projects)
-
-g) Books and Libraries (a library could have multiple copies of the same book, and a book could be found in multiple libraries)
-
-h) StudentOrganizations and Students (a graduate student could belong to multiple organizations, and an organization could have multiple graduate student members)
-
-i) Exams and Students (a graduate student could take multiple exams, and an exam could be taken by multiple graduate students)
-
-j) AthleticsFacilities and Students (an undergraduate student could use multiple facilities for their recreation, and a facility could be used by multiple undergraduate students)
+* FacultyMembers and ResearchProjects (a faculty member could supervise multiple research projects, and a research project could have multiple faculty members on its team)
+* Books and Courses (a book could be used in multiple courses, and a course could require multiple books)
+* StudentOrganizations and Students (an organization could have multiple members, and a student could belong to multiple organizations)
+* Exams and Courses (a course could have multiple exams, and an exam could be given in multiple courses)
+* AthleticsFacilities and FacultyMembers (a faculty member could use multiple facilities for their research or recreation, and a facility could be used by multiple faculty members)
+* ResearchProjects and Students (a research project could have multiple undergraduate students working on it, and a student could work on multiple research projects)
+* Books and Libraries (a library could have multiple copies of the same book, and a book could be found in multiple libraries)
+* StudentOrganizations and Students (a graduate student could belong to multiple organizations, and an organization could have multiple graduate student members)
+* Exams and Students (a graduate student could take multiple exams, and an exam could be taken by multiple graduate students)
+* AthleticsFacilities and Students (an undergraduate student could use multiple facilities for their recreation, and a facility could be used by multiple undergraduate students)
 
 -----------------------------------
 
@@ -161,10 +152,10 @@ j) AthleticsFacilities and Students (an undergraduate student could use multiple
 
 # Literature:
 
-* [WPF-Polish](wpf-pl-7.0.pdf)
-* [WPF-English](wpf-en-7.0.pdf)
-* [.NET-Polish](dotnet-fundamentals-pl.pdf)
-* [.NET-English](dotnet-fundamentals-en.pdf)
+* [WPF-Polish](https://github.com/palles77/AdvancedProgramming2/blob/main/wpf-en-7.0.pdf)
+* [WPF-English](https://github.com/palles77/AdvancedProgramming2/blob/main/wpf-en-7.0.pdf)
+* [.NET-Polish](https://github.com/palles77/AdvancedProgramming2/blob/main/dotnet-fundamentals-pl.pdf)
+* [.NET-English](https://github.com/palles77/AdvancedProgramming2/blob/main/dotnet-fundamentals-en.pdf)
 * https://learn.microsoft.com/pl-pl/dotnet/core/testing/unit-testing-with-dotnet-test
 * https://learn.microsoft.com/pl-pl/dotnet/architecture/modern-web-apps-azure/architectural-principles
 * https://learn.microsoft.com/pl-pl/dotnet/communitytoolkit/mvvm/

@@ -2,8 +2,9 @@
 
 Tasks for Advanced Programming
 
-1. (Task 1)[Task1.md]
-2. (Task 2)[Task2.md]
+1. (Task1.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task1.md
+2. (Task2.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task2.md
+3. Task 3 to be anounced later...
 
 # Last Modified
 2023/04/15
