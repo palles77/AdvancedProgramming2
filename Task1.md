@@ -6,18 +6,28 @@
 * 'db plus' - tasks from 1 to 6.
 * 'bdb' - tasks from 1 to 7.
 
-Solutions should be sent to email address as links to a repository in GitHub before 2023/09/15: leslaw dot pawlaczyk at chorzow dot wsb dot pl
-Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in (Task2.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task2.md], (Task3.md)[https://github.com/palles77/AdvancedProgramming2/blob/main/Task3.md]
+-----------------------------------
+
+# Solutions
+
+Solutions should be sent to email address as links to a repository in GitHub before 2023/09/15: 
+
+leslaw dot pawlaczyk at chorzow dot wsb dot pl
+
+Soution for Task1 should be placed in a separate folder to other tasks (task2 and task3) which are specified in:
+
+* https://github.com/palles77/AdvancedProgramming2/blob/main/Task2.md, 
+* https://github.com/palles77/AdvancedProgramming2/blob/main/Task3.md
 
 -----------------------------------
 
 1. Add four choces new properties to the Student entity:
-a) Gender
-b) Place of Birth
-c) Place of Residence (town, city or village data would be entered here)
-d) Address Line 1
-e) Address Line 2
-f) Postal Code
+* Gender
+* Place of Birth
+* Place of Residence (town, city or village data would be entered here)
+* Address Line 1
+* Address Line 2
+* Postal Code
 These properties should be rendered in Student related controls and views.
 
 -----------------------------------
