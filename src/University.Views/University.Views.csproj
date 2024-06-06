@@ -19,10 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AddBookView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddStudentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AddSubjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditBookView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditStudentView.xaml.cs">
@@ -32,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BooksView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="StudentsView.xaml.cs">

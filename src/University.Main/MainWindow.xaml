@@ -16,6 +16,9 @@
     </Window.Resources>
     <Grid>
         <TabControl TabStripPlacement="Left" SelectedIndex="{Binding SelectedTab}" ItemContainerStyle="{StaticResource TabPrimaryItem}">
+            <TabItem Header="Books" Tag="&#xE779;">
+                <ContentControl Content="{Binding BooksSubView}" />
+            </TabItem>
             <TabItem Header="Students" Tag="&#xE779;">
                 <ContentControl Content="{Binding StudentsSubView}" />
             </TabItem>

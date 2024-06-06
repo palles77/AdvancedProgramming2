@@ -15,6 +15,7 @@ namespace University.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,6 +39,11 @@ namespace University.Data
                 new Subject { SubjectId = 1, Name = "Matematyka", Semester = "1", Lecturer = "Michalina Warszawa" },
                 new Subject { SubjectId = 2, Name = "Biologia", Semester = "2", Lecturer = "Halina Katowice" },
                 new Subject { SubjectId = 3, Name = "Chemia", Semester = "3", Lecturer = "Jan Nowak" }
+            );
+
+
+            modelBuilder.Entity<Book>().HasData(
+                new Book { BookId = 1, Title = "W pustyni i puszczy", Author = "Henryk Sienkiewicz" }
             );
         }
     }

@@ -1,0 +1,26 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/src/.vs/University
+/src/University.Common/obj
+/src/University.Controls/obj
+/src/University.Data/obj
+/src/University.Extensions/obj
+/src/University.Interfaces/obj
+/src/University.Main/obj
+/src/University.Models
+/src/University.Services/obj
+/src/University.ViewModels/obj
+/src/University.Views/obj
+/src/University.Common/bin/Debug/net6.0-windows
+/src/University.Data/bin/Debug/net6.0
+/src/University.Extensions/bin/Debug/net6.0
+/src/University.Interfaces/bin/Debug/net6.0
+/src/University.Tests/obj
+/src/University.Tests/bin/Debug/net6.0-windows
+/src/University.Controls/bin/Debug/net6.0-windows
+/src/University.Main/bin/Debug/net6.0-windows
+/src/University.Services/bin/Debug/net6.0-windows
+/src/University.ViewModels/bin/Debug/net6.0
+/src/University.Views/bin/Debug/net6.0-windows

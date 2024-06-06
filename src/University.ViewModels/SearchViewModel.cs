@@ -68,6 +68,20 @@ public class SearchViewModel : ViewModelBase
         }
     }
 
+    private bool _areBooksVisible;
+    public bool AreBooksVisible
+    {
+        get
+        {
+            return _areBooksVisible;
+        }
+        set
+        {
+            _areBooksVisible = value;
+            OnPropertyChanged(nameof(AreBooksVisible));
+        }
+    }
+
     private bool _areStudentsVisible;
     public bool AreStudentsVisible
     {
@@ -93,6 +107,25 @@ public class SearchViewModel : ViewModelBase
         {
             _areSubjectsVisible = value;
             OnPropertyChanged(nameof(AreSubjectsVisible));
+        }
+    }
+
+    private ObservableCollection<Book>? _books = null;
+    public ObservableCollection<Book>? Books
+    {
+        get
+        {
+            if (_books is null)
+            {
+                _books = new ObservableCollection<Book>();
+                return _books;
+            }
+            return _books;
+        }
+        set
+        {
+            _books = value;
+            OnPropertyChanged(nameof(Books));
         }
     }
 
@@ -154,6 +187,10 @@ public class SearchViewModel : ViewModelBase
             IsVisible = true;
             string selectedValue = objAsString;
             SecondCondition = string.Empty;
+            if (selectedValue == "Books")
+            {
+                FirstCondition = "which are titled";
+            }
             if (selectedValue == "Students")
             {
                 FirstCondition = "who attends";
@@ -180,6 +217,27 @@ public class SearchViewModel : ViewModelBase
 
     private void SelectData(object? obj)
     {
+        if (FirstCondition == "which are titled")
+        {
+            _context.Database.EnsureCreated();
+            Book? book = _context.Books.Where(b => b.Author == SecondCondition).FirstOrDefault();
+            if (book is not null)
+            {
+                var books = _context.Books
+                    // TODO: uncomment when related entities are implemented
+                    //.Include(s => s.Subjects)
+                    .ToList();
+
+                var filteredBooks = books
+                    // TODO: uncomment when related entities are implemented
+                    //.Where(s => s.Subjects != null && s.Subjects.Any(sub => sub.Name == subject.Name))
+                    .ToList();
+
+                Books = new ObservableCollection<Book>(filteredBooks);
+                AreBooksVisible = false;
+                AreBooksVisible = true;
+            }
+        }
         if (FirstCondition == "who attends")
         {
             _context.Database.EnsureCreated();
@@ -239,6 +297,20 @@ public class SearchViewModel : ViewModelBase
     {
         if (obj is not null)
         {
+            if (FirstCondition == "which are titled")
+            {
+                long bookId = (long)obj;
+                EditBookViewModel editBookViewModel = new EditBookViewModel(_context, _dialogService)
+                {
+                    BookId = bookId
+                };
+                var instance = MainWindowViewModel.Instance();
+                if (instance is not null)
+                {
+                    instance.BooksSubView = editBookViewModel;
+                    instance.SelectedTab = 0;
+                }
+            }
             if (FirstCondition == "who attends")
             {
                 long studentId = (long)obj;
@@ -287,7 +359,24 @@ public class SearchViewModel : ViewModelBase
     {
         if (obj is not null)
         {
-            if (FirstCondition == "who attends")
+            if (FirstCondition == "which are titled")
+            {
+                long bookId = (long)obj;
+                Book? book = _context.Books.Find(bookId);
+                if (book is null)
+                {
+                    return;
+                }
+
+                DialogResult = _dialogService.Show(book.Title + " " + book.Author);
+                if (DialogResult == false)
+                {
+                    return;
+                }
+                _context.Books.Remove(book);
+                _context.SaveChanges();
+            }
+            else if (FirstCondition == "who attends")
             {
                 long studentId = (long)obj;
                 Student? student = _context.Students.Find(studentId);

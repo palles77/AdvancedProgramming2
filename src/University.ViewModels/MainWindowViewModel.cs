@@ -23,6 +23,20 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
+    private object? _booksSubView = null;
+    public object? BooksSubView
+    {
+        get
+        {
+            return _booksSubView;
+        }
+        set
+        {
+            _booksSubView = value;
+            OnPropertyChanged(nameof(BooksSubView));
+        }
+    }
+
     private object? _studentsSubView = null;
     public object? StudentsSubView
     {
@@ -81,6 +95,7 @@ public class MainWindowViewModel : ViewModelBase
             _instance = this;
         }
 
+        BooksSubView = new BooksViewModel(_context, _dialogService);
         StudentsSubView = new StudentsViewModel(_context, _dialogService);
         SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
         SearchSubView = new SearchViewModel(_context, _dialogService);

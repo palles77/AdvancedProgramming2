@@ -29,11 +29,71 @@
                 </i:Interaction.Triggers>
                 <system:String>Students</system:String>
                 <system:String>Subjects</system:String>
+                <system:String>Books</system:String>
             </ComboBox>
             <TextBlock Text="{Binding FirstCondition}" VerticalAlignment="Center" />
             <TextBox Text="{Binding SecondCondition}" VerticalAlignment="Center" Height="22"  Width="200" Margin="5,0" Visibility="{Binding Path=IsVisible, Converter={StaticResource BoolToVis}}" />
             <Button Content="Search" Command="{Binding Search}" DockPanel.Dock="Right" Style="{StaticResource PrimaryButton}" Tag="&#xE721;" />
         </DockPanel>
+        <ListView Visibility="{Binding Path=AreBooksVisible, Converter={StaticResource BoolToVis}}" Grid.Row="1" ItemsSource="{Binding Books}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding BookId}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding BookId}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Author}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- TODO: Ucomment when dependant entities are implemented -->
+                    <!--<GridViewColumn Header="Subjects" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Expander Header="View" Padding="2">
+                                    <ItemsControl ItemsSource="{Binding Subjects}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,5">
+                                                    <TextBlock Text="{Binding Name}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Expander>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+                    <GridViewColumn Header="Edit">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.Edit, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding BookId}" Style="{StaticResource SecondaryButton}" Tag="&#xE70F;" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Remove">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding BookId}" Style="{StaticResource SecondaryButton}" Tag="&#xE74D;" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <ListView Visibility="{Binding Path=AreStudentsVisible, Converter={StaticResource BoolToVis}}" Grid.Row="1" ItemsSource="{Binding Students}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
             <ListView.View>
                 <GridView>
