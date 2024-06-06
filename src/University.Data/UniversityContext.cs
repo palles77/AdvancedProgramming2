@@ -43,7 +43,7 @@ namespace University.Data
 
 
             modelBuilder.Entity<Book>().HasData(
-                new Book { BookId = 1, Title = "W pustyni i puszczy", Author = "Henryk Sienkiewicz" }
+                new Book { BookId = 1, Title = "W pustyni i w puszczy", Author = "Henryk Sienkiewicz" }
             );
         }
     }

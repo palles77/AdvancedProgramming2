@@ -220,7 +220,7 @@ public class SearchViewModel : ViewModelBase
         if (FirstCondition == "which are titled")
         {
             _context.Database.EnsureCreated();
-            Book? book = _context.Books.Where(b => b.Author == SecondCondition).FirstOrDefault();
+            Book? book = _context.Books.Where(b => b.Title == SecondCondition).FirstOrDefault();
             if (book is not null)
             {
                 var books = _context.Books
