@@ -37,6 +37,20 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
+    private object? _animalsSubView = null;
+    public object? AnimalsSubView
+    {
+        get
+        {
+            return _animalsSubView;
+        }
+        set
+        {
+            _animalsSubView = value;
+            OnPropertyChanged(nameof(AnimalsSubView));
+        }
+    }
+
     private object? _subjectsSubView = null;
     public object? SubjectsSubView
     {
@@ -83,6 +97,7 @@ public class MainWindowViewModel : ViewModelBase
 
         StudentsSubView = new StudentsViewModel(_context, _dialogService);
         SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
+        AnimalsSubView = new AnimalsViewModel(_context, _dialogService);
         SearchSubView = new SearchViewModel(_context, _dialogService);
     }
 }

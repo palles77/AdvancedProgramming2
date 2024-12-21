@@ -22,6 +22,9 @@
             <TabItem Header="Subjects" Tag="&#xE82D;">
                 <ContentControl Content="{Binding SubjectsSubView}" />
             </TabItem>
+            <TabItem Header="Animals" Tag="&#xE82D;">
+                <ContentControl Content="{Binding AnimalsSubView}" />
+            </TabItem>
             <TabItem Header="Search" Tag="&#xE773;">
                 <ContentControl Content="{Binding SearchSubView}" />
             </TabItem>

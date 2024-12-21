@@ -23,8 +23,19 @@ namespace University.Main
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            // Load data from JSON file if it exists
+            var dbContext = ServiceProvider.GetService<UniversityContext>();
+            if (dbContext != null)
+            {
+                dbContext.LoadData("data.json");
+            }
+
             MainWindow mainWindow = ServiceProvider.GetService<MainWindow>();
             mainWindow.Show();
+
+            // Register the OnProcessExit event handler
+            AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
+
         }
 
         private void ConfigureServices(ServiceCollection serviceCollection)
@@ -44,5 +55,17 @@ namespace University.Main
             MessageBox.Show("An unhandled exception just occurred: " + e.Exception.InnerException, "Exception", MessageBoxButton.OK, MessageBoxImage.Warning);
             e.Handled = true;
         }
+
+        private void OnProcessExit(object? sender, EventArgs e)
+        {
+            // Retrieve the UniversityContext from the service provider
+            var dbContext = ServiceProvider.GetService<UniversityContext>();
+            if (dbContext != null)
+            {
+                // Save data to JSON file on application exit
+                dbContext.SaveData("data.json");
+            }
+        }
+
     }
 }

@@ -5,14 +5,23 @@
     <DataTemplate DataType="{x:Type viewmodels:StudentsViewModel}">
         <views:StudentsView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:AnimalsViewModel}">
+        <views:AnimalsView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:SubjectsViewModel}">
         <views:SubjectsView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:AddStudentViewModel}">
         <views:AddStudentView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:AddAnimalViewModel}">
+        <views:AddAnimalView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:EditStudentViewModel}">
         <views:EditStudentView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:EditAnimalViewModel}">
+        <views:EditAnimalView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:AddSubjectViewModel}">
         <views:AddSubjectView />

@@ -19,10 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AddAnimalView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AddStudentView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AddSubjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditAnimalView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditStudentView.xaml.cs">
@@ -35,6 +41,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="StudentsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AnimalsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SubjectsView.xaml.cs">
