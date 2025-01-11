@@ -33,6 +33,7 @@ public class AnimalService: IAnimalService
     }
 
     #endregion // Properties And Ctor
+
     #region IAnimalService Implementation
 
     /// <inheritdoc/>
