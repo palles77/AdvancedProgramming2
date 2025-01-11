@@ -29,6 +29,7 @@
                 </i:Interaction.Triggers>
                 <system:String>Students</system:String>
                 <system:String>Subjects</system:String>
+                <system:String>Animals</system:String>
             </ComboBox>
             <TextBlock Text="{Binding FirstCondition}" VerticalAlignment="Center" />
             <TextBox Text="{Binding SecondCondition}" VerticalAlignment="Center" Height="22"  Width="200" Margin="5,0" Visibility="{Binding Path=IsVisible, Converter={StaticResource BoolToVis}}" />
@@ -164,5 +165,33 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <ListView Visibility="{Binding Path=AreAnimalsVisible, Converter={StaticResource BoolToVis}}" Grid.Row="1" ItemsSource="{Binding Animals}" BorderThickness="0" ItemContainerStyle="{StaticResource ListViewPrimaryItem}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Species" DisplayMemberBinding="{Binding Species}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Species}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Age}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </UserControl>

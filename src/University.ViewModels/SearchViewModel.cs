@@ -96,6 +96,20 @@ public class SearchViewModel : ViewModelBase
         }
     }
 
+    private bool _areAnimalsVisible;
+    public bool AreAnimalsVisible
+    {
+        get
+        {
+            return _areAnimalsVisible;
+        }
+        set
+        {
+            _areAnimalsVisible = value;
+            OnPropertyChanged(nameof(AreAnimalsVisible));
+        }
+    }
+
     private ObservableCollection<Student>? _students = null;
     public ObservableCollection<Student>? Students
     {
@@ -134,6 +148,25 @@ public class SearchViewModel : ViewModelBase
         }
     }
 
+    private ObservableCollection<Animal>? _animals = null;
+    public ObservableCollection<Animal>? Animals
+    {
+        get
+        {
+            if (_animals is null)
+            {
+                _animals = new ObservableCollection<Animal>();
+                return _animals;
+            }
+            return _animals;
+        }
+        set
+        {
+            _animals = value;
+            OnPropertyChanged(nameof(Animals));
+        }
+    }
+
     private ICommand? _comboBoxSelectionChanged = null;
     public ICommand? ComboBoxSelectionChanged
     {
@@ -154,13 +187,17 @@ public class SearchViewModel : ViewModelBase
             IsVisible = true;
             string selectedValue = objAsString;
             SecondCondition = string.Empty;
-            if (selectedValue == "Students")
+            if (string.Equals(selectedValue, "Students"))
             {
                 FirstCondition = "who attends";
             }
-            else if (selectedValue == "Subjects")
+            else if (string.Equals(selectedValue, "Subjects"))
             {
                 FirstCondition = "attended by Student with PESEL";
+            }
+            else if (string.Equals(selectedValue, "Animals"))
+            {
+                FirstCondition = "who's name contains NAME";
             }
         }
     }
@@ -197,6 +234,7 @@ public class SearchViewModel : ViewModelBase
                 Students = new ObservableCollection<Student>(filteredStudents);
                 AreSubjectsVisible = false;
                 AreStudentsVisible = true;
+                AreAnimalsVisible = false;
             }
         }
         else if (FirstCondition == "attended by Student with PESEL")
@@ -218,6 +256,20 @@ public class SearchViewModel : ViewModelBase
                 Subjects = new ObservableCollection<Subject>(filteredSubjects);
                 AreStudentsVisible = false;
                 AreSubjectsVisible = true;
+                AreAnimalsVisible = false;
+            }
+        }
+        else if (FirstCondition == "who's name contains NAME")
+        {
+            _context.Database.EnsureCreated();
+            var animals = _context.Animals
+                .Where(s => s.Name.Contains(SecondCondition));
+            if (animals is not null)
+            {
+                Animals = new ObservableCollection<Animal>(animals);
+                AreStudentsVisible = false;
+                AreSubjectsVisible = false;
+                AreAnimalsVisible = true;
             }
         }
     }
@@ -331,5 +383,6 @@ public class SearchViewModel : ViewModelBase
         IsVisible = false;
         AreStudentsVisible = false;
         AreSubjectsVisible = false;
+        AreAnimalsVisible = false;
     }
 }
