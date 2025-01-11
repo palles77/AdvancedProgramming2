@@ -19,14 +19,17 @@ public abstract class AnimalBaseViewModel : ViewModelBase, IDataErrorInfo
 
     protected readonly UniversityContext _context;
     protected readonly IDialogService _dialogService;
+    protected readonly IAnimalService _animalService;
     protected Animal? _animal = new Animal();
 
     protected AnimalBaseViewModel(
         UniversityContext context,
-        IDialogService dialogService)
+        IDialogService dialogService,
+        IAnimalService animalService)
     {
         _context = context;
         _dialogService = dialogService;
+        _animalService = animalService;
     }
 
     public string Error
@@ -152,7 +155,7 @@ public abstract class AnimalBaseViewModel : ViewModelBase, IDataErrorInfo
         var instance = MainWindowViewModel.Instance();
         if (instance is not null)
         {
-            instance.AnimalsSubView = new AnimalsViewModel(_context, _dialogService);
+            instance.AnimalsSubView = new AnimalsViewModel(_context, _dialogService, _animalService);
         }
     }
 

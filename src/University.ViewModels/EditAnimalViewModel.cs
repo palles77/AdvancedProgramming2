@@ -6,8 +6,11 @@ namespace University.ViewModels;
 
 public class EditAnimalViewModel : AnimalBaseViewModel
 {
-    public EditAnimalViewModel(UniversityContext context, IDialogService dialogService):
-        base(context, dialogService)
+    public EditAnimalViewModel(
+        UniversityContext context, 
+        IDialogService dialogService,
+        IAnimalService animalService):
+        base(context, dialogService, animalService)
     {
     }
 
@@ -23,12 +26,8 @@ public class EditAnimalViewModel : AnimalBaseViewModel
         {
             return;
         }
-        _animal.Species = Species;
-        _animal.Name = Name;
-        _animal.Age = Age;
 
-        _context.Entry(_animal).State = EntityState.Modified;
-        _context.SaveChanges();
+        _animalService.EditAnimal(_animal, this.Species, this.Name, this.Age);
 
         Response = "Data Updated";
     }

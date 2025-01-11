@@ -46,6 +46,7 @@ namespace University.Main
                 options.UseLazyLoadingProxies();
             });
             serviceCollection.AddSingleton<IDialogService, DialogService>();
+            serviceCollection.AddSingleton<IAnimalService, AnimalService>();
             serviceCollection.AddSingleton<MainWindowViewModel>();
             serviceCollection.AddSingleton<MainWindow>();
         }

@@ -1,15 +1,18 @@
 ﻿using University.Data;
 using University.Interfaces;
-using University.Models;
 
 namespace University.ViewModels;
 
 public class AddAnimalViewModel : AnimalBaseViewModel
 {
-    public AddAnimalViewModel(UniversityContext context, IDialogService dialogService)
-        : base(context, dialogService)
+    public AddAnimalViewModel(
+        UniversityContext context, 
+        IDialogService dialogService,
+        IAnimalService animalService)
+        : base(context, dialogService, animalService)
     {
     }
+
     public override void SaveData(object? obj)
     {
         if (!IsValid())
@@ -18,15 +21,7 @@ public class AddAnimalViewModel : AnimalBaseViewModel
             return;
         }
 
-        Animal animal = new Animal
-        {
-            Species = this.Species,
-            Name = this.Name,
-            Age = this.Age
-        };
-
-        _context.Animals.Add(animal);
-        _context.SaveChanges();
+        _animalService.AddAnimal(this.Species, this.Name, this.Age);
 
         Response = "Data Saved";
     }

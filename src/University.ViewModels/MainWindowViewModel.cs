@@ -85,7 +85,10 @@ public class MainWindowViewModel : ViewModelBase
         return _instance;
     }
 
-    public MainWindowViewModel(UniversityContext context, IDialogService dialogService)
+    public MainWindowViewModel(
+        UniversityContext context, 
+        IDialogService dialogService,
+        IAnimalService animalService)
     {
         _context = context;
         _dialogService = dialogService;
@@ -97,7 +100,7 @@ public class MainWindowViewModel : ViewModelBase
 
         StudentsSubView = new StudentsViewModel(_context, _dialogService);
         SubjectsSubView = new SubjectsViewModel(_context, _dialogService);
-        AnimalsSubView = new AnimalsViewModel(_context, _dialogService);
+        AnimalsSubView = new AnimalsViewModel(_context, _dialogService, animalService);
         SearchSubView = new SearchViewModel(_context, _dialogService);
     }
 }

@@ -10,8 +10,11 @@ namespace University.ViewModels;
 
 public class AnimalsViewModel : ViewModelBase
 {
+    #region Properties And Ctor
+
     private readonly UniversityContext _context;
     private readonly IDialogService _dialogService;
+    private readonly IAnimalService _animalService;
 
     private bool? _dialogResult = null;
     public bool? DialogResult
@@ -58,16 +61,6 @@ public class AnimalsViewModel : ViewModelBase
         }
     }
 
-    private void AddNewAnimal(object? obj)
-    {
-        var instance = MainWindowViewModel.Instance();
-        if (instance is not null)
-        {
-            instance.AnimalsSubView = new AddAnimalViewModel(_context, _dialogService);
-
-        }
-    }
-
     private ICommand? _edit = null;
     public ICommand? Edit
     {
@@ -78,23 +71,6 @@ public class AnimalsViewModel : ViewModelBase
                 _edit = new RelayCommand<object>(EditAnimal);
             }
             return _edit;
-        }
-    }
-
-    private void EditAnimal(object? obj)
-    {
-        if (obj is not null)
-        {
-            long animalId = (long)obj;
-            EditAnimalViewModel editAnimalViewModel = new EditAnimalViewModel(_context, _dialogService)
-            {
-                AnimalId = animalId
-            };
-            var instance = MainWindowViewModel.Instance();
-            if (instance is not null)
-            {
-                instance.AnimalsSubView = editAnimalViewModel;
-            }
         }
     }
 
@@ -111,33 +87,59 @@ public class AnimalsViewModel : ViewModelBase
         }
     }
 
+    public AnimalsViewModel(
+        UniversityContext context, 
+        IDialogService dialogService,
+        IAnimalService animalService)
+    {
+        _context = context;
+        _dialogService = dialogService;
+        _animalService = animalService;
+
+        _context.Database.EnsureCreated();
+        _context.Animals.Load();
+        Animals = _context.Animals.Local.ToObservableCollection();
+        _animalService = animalService;
+    }
+
+    #endregion // Properties And Ctor
+
+    #region Private Methods
+
+    private void AddNewAnimal(object? obj)
+    {
+        var instance = MainWindowViewModel.Instance();
+        if (instance is not null)
+        {
+            instance.AnimalsSubView = new AddAnimalViewModel(_context, _dialogService, _animalService);
+        }
+    }
+
+    private void EditAnimal(object? obj)
+    {
+        if (obj is not null)
+        {
+            long animalId = (long)obj;
+            EditAnimalViewModel editAnimalViewModel = new EditAnimalViewModel(_context, _dialogService, _animalService)
+            {
+                AnimalId = animalId
+            };
+            var instance = MainWindowViewModel.Instance();
+            if (instance is not null)
+            {
+                instance.AnimalsSubView = editAnimalViewModel;
+            }
+        }
+    }
+
     private void RemoveAnimal(object? obj)
     {
         if (obj is not null)
         {
             long animalId = (long)obj;
-            Animal? animal = _context.Animals.Find(animalId);
-            if (animal is not null)
-            {
-                DialogResult = _dialogService.Show(animal.Name + " " + animal.Age);
-                if (DialogResult == false)
-                {
-                    return;
-                }
-
-                _context.Animals.Remove(animal);
-                _context.SaveChanges();
-            }
+            _animalService.DeleteAnimal(animalId);
         }
     }
 
-    public AnimalsViewModel(UniversityContext context, IDialogService dialogService)
-    {
-        _context = context;
-        _dialogService = dialogService;
-
-        _context.Database.EnsureCreated();
-        _context.Animals.Load();
-        Animals = _context.Animals.Local.ToObservableCollection();
-    }
+    #endregion // Private Methods
 }
